@@ -1,0 +1,74 @@
+---
+import ThemeToggle from '../ui/ThemeToggle.astro';
+
+const sections = [
+  { id: 'hero', label: 'Home', accent: 'var(--color-accent-hero)' },
+  { id: 'projects', label: 'Projects', accent: 'var(--color-accent-projects)' },
+  { id: 'experience', label: 'Exp', accent: 'var(--color-accent-experience)' },
+  { id: 'skills', label: 'Skills', accent: 'var(--color-accent-skills)' },
+];
+---
+
+<!-- Desktop: fixed right edge, vertical dots -->
+<nav
+  id="hud-nav"
+  class="fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-center gap-5 md:flex"
+  aria-label="Section navigation"
+>
+  {sections.map((s, i) => (
+    <button
+      data-section={s.id}
+      class="hud-nav-dot group relative flex items-center"
+      aria-current={i === 0 ? 'true' : 'false'}
+      aria-label={`Navigate to ${s.label}`}
+      style={`--dot-color: ${s.accent}`}
+    >
+      <span class="pointer-events-none absolute right-8 whitespace-nowrap rounded-md border border-border bg-surface px-2.5 py-1 text-[0.65rem] uppercase tracking-wider text-muted opacity-0 shadow-lg transition-opacity group-hover:opacity-100">
+        {s.label}
+      </span>
+      <span class="nav-dot block h-2 w-2 rounded-full border border-border/60 bg-transparent transition-all duration-300 group-hover:scale-150 group-hover:border-[var(--dot-color)]" />
+    </button>
+  ))}
+
+  <div class="my-1 h-px w-4 bg-border/40" />
+  <ThemeToggle />
+</nav>
+
+<!-- Mobile: fixed bottom bar with safe-area -->
+<nav
+  class="fixed bottom-0 left-0 z-40 flex w-full items-center justify-around border-t border-border/50 bg-bg/90 px-2 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden"
+  aria-label="Section navigation"
+>
+  {sections.map((s, i) => (
+    <button
+      data-section={s.id}
+      class="hud-nav-dot flex flex-col items-center gap-1 px-2 py-1"
+      aria-current={i === 0 ? 'true' : 'false'}
+      aria-label={`Navigate to ${s.label}`}
+      style={`--dot-color: ${s.accent}`}
+    >
+      <span class="nav-dot block h-1.5 w-1.5 rounded-full border border-border/60 bg-transparent transition-all duration-300" />
+      <span class="text-[0.55rem] uppercase tracking-wider text-muted">{s.label}</span>
+    </button>
+  ))}
+  <ThemeToggle />
+</nav>
+
+<style>
+  .nav-dot {
+    transition: all 0.3s var(--ease-reveal);
+  }
+
+  [aria-current="true"] .nav-dot {
+    border-color: var(--dot-color);
+    background-color: var(--dot-color);
+    box-shadow: 0 0 8px var(--dot-color);
+  }
+</style>
+
+<script>
+  import { initHudNav } from '../../scripts/hud-nav';
+
+  document.addEventListener('astro:page-load', initHudNav);
+  initHudNav();
+</script>

@@ -1,0 +1,48 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="section-hero relative z-10 border-t border-border/40 pb-24 pt-12 md:pb-12">
+  <div class="mx-auto max-w-5xl px-6">
+    <!-- Top row: tagline + links -->
+    <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+      <div class="text-center md:text-left">
+        <p class="text-sm font-semibold text-text">Jacob Vorndran</p>
+        <p class="mt-1 text-xs text-muted">Software Engineer</p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 text-sm">
+        <a
+          href="mailto:jvorndran400@gmail.com"
+          class="text-muted transition-colors hover:text-accent-hero"
+        >
+          Email
+        </a>
+        <span aria-hidden="true" class="text-border/40">|</span>
+        <a
+          href="https://www.linkedin.com/in/jacob-vorndran-97baa6294"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted transition-colors hover:text-accent-hero"
+        >
+          LinkedIn<span class="sr-only"> (opens in a new tab)</span>
+        </a>
+        <span aria-hidden="true" class="text-border/40">|</span>
+        <a
+          href="https://github.com/jvorndran"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted transition-colors hover:text-accent-hero"
+        >
+          GitHub<span class="sr-only"> (opens in a new tab)</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom row: copyright + built-with -->
+    <div class="mt-8 flex flex-col items-center justify-between gap-2 border-t border-border/20 pt-6 text-[0.65rem] text-muted/40 md:flex-row">
+      <p>&copy; {currentYear} Jacob Vorndran. All rights reserved.</p>
+      <p>Built with Astro, Tailwind CSS, and Three.js</p>
+    </div>
+  </div>
+</footer>

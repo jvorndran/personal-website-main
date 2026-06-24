@@ -1,0 +1,186 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import HudBorder from '../ui/HudBorder.astro';
+import AffiliationLogo from '../ui/AffiliationLogo.astro';
+import data from '../../content/experience.json';
+
+interface WorkEntry {
+  title: string;
+  org: string;
+  location: string;
+  period: string;
+  description: string;
+  highlights?: string[];
+  tags: string[];
+  logoSrc?: string;
+  logoAlt?: string;
+}
+
+interface EducationEntry {
+  degree: string;
+  school: string;
+  period: string;
+  gpa?: string;
+  highlights: string[];
+  logoSrc?: string;
+  logoAlt?: string;
+}
+
+interface PublicationEntry {
+  title: string;
+  venue: string;
+  period: string;
+  description: string;
+  tags: string[];
+}
+
+const work = data.work as WorkEntry[];
+const education = data.education as EducationEntry[];
+const publications = (data.publications ?? []) as PublicationEntry[];
+---
+
+<section
+  id="experience"
+  class="section-experience py-24"
+  aria-labelledby="experience-heading"
+>
+  <div class="mx-auto max-w-5xl px-6">
+    <SectionHeading id="experience-heading" label="Experience" tag="SEC.03" />
+
+    <div class="relative">
+      <!-- Circuit path (vertical line) -->
+      <div class="timeline-draw reveal absolute left-[18px] top-0 bottom-0 hidden w-px bg-gradient-to-b from-accent-experience/40 via-accent-experience/20 to-transparent md:block" aria-hidden="true" />
+
+      <!-- Work timeline -->
+      <div class="space-y-6 md:pl-12">
+        {work.map((entry, i) => (
+          <div class="reveal group relative" style={`transition-delay: ${i * 80}ms`}>
+            {/* Timeline dot */}
+            <div class="absolute -left-12 top-6 hidden md:block" aria-hidden="true">
+              <div class="flex h-4 w-4 items-center justify-center rounded-full border-2 border-accent-experience bg-bg transition-all group-hover:shadow-[0_0_12px_var(--color-glow-experience)]">
+                <div class="h-1.5 w-1.5 rounded-full bg-accent-experience" />
+              </div>
+            </div>
+
+            <HudBorder class="bg-surface/20 transition-all hover:bg-surface/30 hover:shadow-[0_0_20px_var(--color-glow-experience)]">
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <div class="flex min-w-0 flex-1 items-start gap-3">
+                  {entry.logoSrc && (
+                    <AffiliationLogo src={entry.logoSrc} alt={entry.logoAlt ?? `${entry.org} logo`} />
+                  )}
+                  <div class="min-w-0 flex-1">
+                    <h3 class="text-base font-semibold text-text">{entry.title}</h3>
+                    <p class="text-sm text-accent-experience">{entry.org}</p>
+                    <p class="text-xs text-muted">{entry.location}</p>
+                  </div>
+                </div>
+                <span class="shrink-0 rounded border border-border px-2 py-1 text-[0.65rem] text-muted">
+                  {entry.period}
+                </span>
+              </div>
+
+              <p class="mt-3 text-sm leading-relaxed text-muted">
+                {entry.description}
+              </p>
+
+              {entry.highlights && entry.highlights.length > 0 && (
+                <ul class="mt-3 space-y-2">
+                  {entry.highlights.map((highlight: string) => (
+                    <li class="flex items-start gap-2 text-sm leading-relaxed text-muted">
+                      <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-experience/60" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                {entry.tags.map((tag: string) => (
+                  <span class="rounded bg-accent-experience/10 px-2 py-0.5 text-[0.65rem] text-accent-experience">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </HudBorder>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Education subsection -->
+    <div class="mt-20">
+      <h3 class="mb-6 flex items-center gap-3 text-sm uppercase tracking-widest text-muted">
+        <span class="h-px w-8 bg-accent-experience/40" />
+        Education
+      </h3>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        {education.map((edu, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 100}ms`}>
+            <HudBorder class="h-full bg-surface/20">
+              <div class="flex items-start justify-between gap-3">
+                <div class="flex min-w-0 items-start gap-3">
+                  {edu.logoSrc && (
+                    <AffiliationLogo
+                      src={edu.logoSrc}
+                      alt={edu.logoAlt ?? `${edu.school} logo`}
+                      size="compact"
+                    />
+                  )}
+                  <div class="min-w-0">
+                    <h4 class="text-base font-semibold text-text">{edu.degree}</h4>
+                    <p class="text-sm text-accent-experience">{edu.school}</p>
+                  </div>
+                </div>
+                <span class="shrink-0 text-xs text-muted">{edu.period}</span>
+              </div>
+              {edu.gpa && <p class="mt-2 text-sm text-muted">GPA: {edu.gpa}</p>}
+              <ul class="mt-3 space-y-1">
+                {edu.highlights.map((h: string) => (
+                  <li class="flex items-start gap-2 text-xs text-muted">
+                    <span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent-experience/50" />
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </HudBorder>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {publications.length > 0 && (
+      <!-- Publications subsection -->
+      <div class="mt-20">
+        <h3 class="mb-6 flex items-center gap-3 text-sm uppercase tracking-widest text-muted">
+          <span class="h-px w-8 bg-accent-experience/40" />
+          Publications & Research
+        </h3>
+
+        <div class="space-y-4">
+          {publications.map((pub, i) => (
+            <div class="reveal" style={`transition-delay: ${i * 100}ms`}>
+              <HudBorder class="bg-surface/20 transition-all hover:bg-surface/40">
+                <div class="flex flex-wrap items-start justify-between gap-2">
+                  <div class="min-w-0 flex-1">
+                    <h4 class="text-base font-semibold text-text">{pub.title}</h4>
+                    <p class="text-sm text-accent-experience">{pub.venue}</p>
+                  </div>
+                  <span class="shrink-0 text-xs text-muted">{pub.period}</span>
+                </div>
+                <p class="mt-2 text-sm text-muted">{pub.description}</p>
+                <div class="mt-2 flex flex-wrap gap-1.5">
+                  {pub.tags.map((tag: string) => (
+                    <span class="rounded bg-accent-experience/10 px-2 py-0.5 text-[0.65rem] text-accent-experience">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </HudBorder>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</section>

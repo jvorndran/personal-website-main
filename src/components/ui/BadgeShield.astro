@@ -1,0 +1,55 @@
+---
+interface Props {
+  name: string;
+  issuer?: string;
+  icon?: string;
+  iconSrc?: string;
+  iconAlt?: string;
+  skills?: string[];
+  href?: string;
+}
+
+const { name, issuer, icon, iconSrc, iconAlt = '', skills = [], href } = Astro.props;
+const Tag = href ? 'a' : 'div';
+const basePath = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const assetPath = (path: string) => `${basePath}${path.replace(/^\//, '')}`;
+const resolvedIconSrc = iconSrc
+  ? iconSrc.startsWith('http')
+    ? iconSrc
+    : assetPath(iconSrc)
+  : undefined;
+---
+
+<Tag
+  class="group block rounded-lg border border-border/60 bg-surface/20 px-4 py-3 transition-all hover:border-[var(--section-accent)]/60 hover:bg-surface/40 hover:shadow-[0_0_20px_var(--section-glow)]"
+  {...href ? { href, target: '_blank', rel: 'noopener noreferrer' } : {}}
+>
+  <div class="flex items-center gap-3">
+    {resolvedIconSrc && (
+      <span class="flex h-8 w-8 items-center justify-center rounded-md border border-[var(--section-accent)]/20 bg-[var(--logo-frame-bg)] p-1.5 transition-colors group-hover:border-[var(--section-accent)]/40">
+        <img src={resolvedIconSrc} alt={iconAlt} class="h-full w-full object-contain" loading="lazy" decoding="async" />
+      </span>
+    )}
+    {!resolvedIconSrc && icon && (
+      <span class="flex h-8 w-8 items-center justify-center rounded-md border border-[var(--section-accent)]/20 bg-[var(--section-accent)]/10 text-[var(--section-accent)] text-lg transition-colors group-hover:border-[var(--section-accent)]/40">
+        {icon}
+      </span>
+    )}
+    <div class="min-w-0">
+      <div class="truncate text-sm font-semibold text-text">{name}</div>
+      {issuer && <div class="truncate text-xs text-muted">{issuer}</div>}
+    </div>
+  </div>
+
+  {skills.length > 0 && (
+    <div class="mt-3 flex flex-wrap gap-1.5">
+      {skills.map((skill: string) => (
+        <span class="rounded bg-[var(--section-accent)]/10 px-2 py-0.5 text-[0.65rem] text-[var(--section-accent)]">
+          {skill}
+        </span>
+      ))}
+    </div>
+  )}
+</Tag>

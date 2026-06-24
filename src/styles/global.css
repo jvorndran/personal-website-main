@@ -1,0 +1,384 @@
+@import "tailwindcss";
+@import "./animations.css";
+@import "./hud.css";
+@import "./arcade.css";
+
+/* --- Tailwind v4 Theme Tokens (dark default) --- */
+@theme {
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+  --font-heading: "Sora", ui-sans-serif, system-ui, sans-serif;
+
+  /* Section accents — night ops / deep signal */
+  --color-accent-hero: oklch(0.76 0.14 194);
+  --color-accent-projects: oklch(0.7 0.18 142);
+  --color-accent-experience: oklch(0.73 0.14 75);
+  --color-accent-skills: oklch(0.68 0.19 330);
+  --color-accent-blog: oklch(0.62 0.17 255);
+
+  --color-glow-hero: oklch(0.55 0.18 194 / 0.32);
+  --color-glow-projects: oklch(0.5 0.2 142 / 0.32);
+  --color-glow-experience: oklch(0.52 0.16 75 / 0.3);
+  --color-glow-skills: oklch(0.48 0.22 330 / 0.32);
+  --color-glow-blog: oklch(0.45 0.2 255 / 0.3);
+
+  /* Neutrals — lifted surface vs void */
+  --color-bg: oklch(0.1 0.026 268);
+  --color-surface: oklch(0.138 0.03 268);
+  --color-text: oklch(0.93 0.011 265);
+  --color-muted: oklch(0.6 0.028 265);
+  --color-border: oklch(0.32 0.038 268);
+
+  /* Default theme atmosphere + HUD (dark) */
+  --atmosphere-noise-opacity: 0.042;
+  --atmosphere-gradient: radial-gradient(
+      ellipse 100% 55% at 50% -5%,
+      oklch(0.28 0.08 268 / 0.35) 0%,
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 95% 50% at 50% 105%,
+      oklch(0.06 0.035 270 / 0.65) 0%,
+      transparent 52%
+    );
+  --hud-scanline-stripe: oklch(0.5 0.1 194 / 0.05);
+  --logo-frame-bg: rgb(255 255 255 / 0.95);
+
+  --ease-reveal: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  --animate-fade-in-up: fade-in-up 0.6s var(--ease-reveal) both;
+  --animate-glitch: glitch 0.4s ease-in-out;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-circuit-draw: circuit-draw 1s var(--ease-reveal) both;
+  --animate-typing: typing 0.8s steps(20) both;
+  --animate-scan-line: scan-line 3s linear infinite;
+}
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+ * Light palette anchors — single source; mapped by [data-theme="light"] and auto+light.
+ * (Custom props on :root; not Tailwind color utilities.)
+ */
+:root {
+  --_light-bg: oklch(0.945 0.012 265);
+  --_light-surface: oklch(0.972 0.009 265);
+  --_light-text: oklch(0.148 0.022 265);
+  --_light-muted: oklch(0.385 0.032 265);
+  --_light-border: oklch(0.775 0.028 265);
+  --_light-accent-hero: oklch(0.48 0.17 194);
+  --_light-accent-projects: oklch(0.44 0.2 142);
+  --_light-accent-experience: oklch(0.48 0.16 75);
+  --_light-accent-skills: oklch(0.44 0.2 330);
+  --_light-accent-blog: oklch(0.42 0.18 255);
+  --_light-glow-hero: oklch(0.42 0.15 194 / 0.22);
+  --_light-glow-projects: oklch(0.38 0.18 142 / 0.22);
+  --_light-glow-experience: oklch(0.4 0.14 75 / 0.2);
+  --_light-glow-skills: oklch(0.38 0.18 330 / 0.22);
+  --_light-glow-blog: oklch(0.34 0.16 255 / 0.22);
+  --_light-atmosphere-gradient: radial-gradient(
+      ellipse 90% 45% at 50% 0%,
+      oklch(0.88 0.04 265 / 0.5) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 100% 40% at 50% 100%,
+      oklch(0.82 0.03 265 / 0.25) 0%,
+      transparent 50%
+    );
+  --_light-atmosphere-noise: 0.026;
+  --_light-hud-scanline: oklch(0.42 0.04 265 / 0.07);
+  --_light-logo-frame-bg: transparent;
+}
+
+/* --- Auto + light OS --- */
+@media (prefers-color-scheme: light) {
+  :root:where([data-theme="auto"]) {
+    --color-bg: var(--_light-bg);
+    --color-surface: var(--_light-surface);
+    --color-text: var(--_light-text);
+    --color-muted: var(--_light-muted);
+    --color-border: var(--_light-border);
+    --color-accent-hero: var(--_light-accent-hero);
+    --color-accent-projects: var(--_light-accent-projects);
+    --color-accent-experience: var(--_light-accent-experience);
+    --color-accent-skills: var(--_light-accent-skills);
+    --color-accent-blog: var(--_light-accent-blog);
+    --color-glow-hero: var(--_light-glow-hero);
+    --color-glow-projects: var(--_light-glow-projects);
+    --color-glow-experience: var(--_light-glow-experience);
+    --color-glow-skills: var(--_light-glow-skills);
+    --color-glow-blog: var(--_light-glow-blog);
+    --atmosphere-gradient: var(--_light-atmosphere-gradient);
+    --atmosphere-noise-opacity: var(--_light-atmosphere-noise);
+    --hud-scanline-stripe: var(--_light-hud-scanline);
+    --logo-frame-bg: var(--_light-logo-frame-bg);
+  }
+}
+
+/* --- Explicit theme overrides --- */
+:root:where([data-theme="dark"]) {
+  --color-bg: oklch(0.1 0.026 268);
+  --color-surface: oklch(0.138 0.03 268);
+  --color-text: oklch(0.93 0.011 265);
+  --color-muted: oklch(0.6 0.028 265);
+  --color-border: oklch(0.32 0.038 268);
+  --color-accent-hero: oklch(0.76 0.14 194);
+  --color-accent-projects: oklch(0.7 0.18 142);
+  --color-accent-experience: oklch(0.73 0.14 75);
+  --color-accent-skills: oklch(0.68 0.19 330);
+  --color-accent-blog: oklch(0.62 0.17 255);
+  --color-glow-hero: oklch(0.55 0.18 194 / 0.32);
+  --color-glow-projects: oklch(0.5 0.2 142 / 0.32);
+  --color-glow-experience: oklch(0.52 0.16 75 / 0.3);
+  --color-glow-skills: oklch(0.48 0.22 330 / 0.32);
+  --color-glow-blog: oklch(0.45 0.2 255 / 0.3);
+  --logo-frame-bg: rgb(255 255 255 / 0.95);
+}
+
+:root:where([data-theme="light"]) {
+  --color-bg: var(--_light-bg);
+  --color-surface: var(--_light-surface);
+  --color-text: var(--_light-text);
+  --color-muted: var(--_light-muted);
+  --color-border: var(--_light-border);
+  --color-accent-hero: var(--_light-accent-hero);
+  --color-accent-projects: var(--_light-accent-projects);
+  --color-accent-experience: var(--_light-accent-experience);
+  --color-accent-skills: var(--_light-accent-skills);
+  --color-accent-blog: var(--_light-accent-blog);
+  --color-glow-hero: var(--_light-glow-hero);
+  --color-glow-projects: var(--_light-glow-projects);
+  --color-glow-experience: var(--_light-glow-experience);
+  --color-glow-skills: var(--_light-glow-skills);
+  --color-glow-blog: var(--_light-glow-blog);
+  --atmosphere-gradient: var(--_light-atmosphere-gradient);
+  --atmosphere-noise-opacity: var(--_light-atmosphere-noise);
+  --hud-scanline-stripe: var(--_light-hud-scanline);
+  --logo-frame-bg: var(--_light-logo-frame-bg);
+}
+
+/* color-scheme: matches data-theme before JS runs (theme.ts still sets inline after load) */
+html:where([data-theme="dark"]) {
+  color-scheme: dark;
+}
+html:where([data-theme="light"]) {
+  color-scheme: light;
+}
+html:where([data-theme="dune"]) {
+  color-scheme: light;
+}
+html:where([data-theme="arcade"]) {
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  html:where([data-theme="auto"]) {
+    color-scheme: dark;
+  }
+}
+@media (prefers-color-scheme: light) {
+  html:where([data-theme="auto"]) {
+    color-scheme: light;
+  }
+}
+
+/*
+ * Dune palette — daytime desert: parchment sky (book-cover), sun-washed sand,
+ * rust ridges; accents unchanged below.
+ */
+:root:where([data-theme="dune"]) {
+  --dune-black: #1a120e;
+  --dune-terracotta: #b84220;
+  --dune-orange: #e3521e;
+  --dune-gold: #f19c38;
+  /* Warm parchment / apricot — sky strip tone; richer than flat beige */
+  --dune-sky: #f2d2a0;
+  --dune-paper: #fffaf3;
+
+  --color-bg: #f4e3cf;
+  --color-surface: #fff8ee;
+  --color-text: #0f0a08;
+  --color-muted: #3f332c;
+  --color-border: #b8966a;
+
+  --color-accent-hero: #c95a1c;
+  --color-accent-projects: #d94818;
+  --color-accent-experience: #a53f22;
+  --color-accent-skills: #c76d28;
+  --color-accent-blog: #2a8fbd;
+
+  --color-glow-hero: rgb(201 90 28 / 0.22);
+  --color-glow-projects: rgb(217 72 24 / 0.2);
+  --color-glow-experience: rgb(165 63 34 / 0.18);
+  --color-glow-skills: rgb(199 109 40 / 0.2);
+  --color-glow-blog: rgb(42 143 189 / 0.2);
+
+  --font-heading: "Marcellus", "Palatino Linotype", Palatino, Georgia, serif;
+  --dune-grain-opacity: 0.05;
+  --dune-horizon-strength: 0.32;
+  --hud-scanline-stripe: rgb(90 60 40 / 0.04);
+  --logo-frame-bg: transparent;
+}
+
+html[data-theme="dune"] body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color: #f2d2a0;
+  background-image: linear-gradient(
+    180deg,
+    #f3d8a8 0%,
+    #efcfa0 14%,
+    #ebc9a0 28%,
+    #e8d4b0 46%,
+    #e2c090 72%,
+    #d9a870 100%
+  );
+}
+
+/* Fixed mount for sandworm canvas — above HUD layers, below skip-link focus ring */
+.sandworm-cursor-root {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  min-height: 100%;
+  pointer-events: none;
+  z-index: 960;
+}
+
+/* Horizon heat + stippled grain (above bg, below main z-10) */
+html[data-theme="dune"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  opacity: 1;
+  background:
+    radial-gradient(
+      ellipse 125% 50% at 50% 100%,
+      rgb(241 176 108 / var(--dune-horizon-strength, 0.32)) 0%,
+      rgb(218 145 88 / 0.2) 42%,
+      transparent 64%
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: auto, 180px 180px;
+  mix-blend-mode: soft-light;
+}
+
+html[data-theme="dune"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  pointer-events: none;
+  opacity: var(--dune-grain-opacity, 0.07);
+  background: repeating-radial-gradient(circle at 17% 31%, oklch(0.5 0 0 / 0.09) 0 0.5px, transparent 0.6px 24px);
+  mix-blend-mode: overlay;
+}
+
+html[data-theme="dune"] .hud-status {
+  letter-spacing: 0.22em;
+}
+
+/*
+ * Sandworm cursor: hide system cursor everywhere (nested utilities often set
+ * cursor:pointer on icons/spans and were winning over html/body cursor:none).
+ */
+html[data-theme="dune"].sandworm-cursor-active,
+html[data-theme="dune"].sandworm-cursor-active *,
+html[data-theme="dune"].sandworm-cursor-active *::before,
+html[data-theme="dune"].sandworm-cursor-active *::after {
+  cursor: none !important;
+}
+
+/*
+ * Default light/dark only: atmosphere on html::before/::after so body::after stays free
+ * for .hud-scanlines (see hud.css).
+ */
+html:not([data-theme="dune"]):not([data-theme="arcade"])::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  background: var(--atmosphere-gradient);
+  mix-blend-mode: soft-light;
+}
+
+html:not([data-theme="dune"]):not([data-theme="arcade"])::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  pointer-events: none;
+  opacity: var(--atmosphere-noise-opacity, 0.04);
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  mix-blend-mode: overlay;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-theme="dune"]):not([data-theme="arcade"])::after {
+    opacity: calc(var(--atmosphere-noise-opacity, 0.04) * 0.4);
+  }
+}
+
+/* --- Base Styles --- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading, var(--font-mono));
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  body {
+    font-family: var(--font-body, var(--font-mono));
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-glow-hero);
+    color: var(--color-text);
+  }
+
+  a {
+    color: inherit;
+    text-decoration-color: var(--section-accent, var(--color-accent-hero));
+    text-underline-offset: 0.2em;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--section-accent, var(--color-accent-hero));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* --- Section accent variable (set per-section, consumed by children) --- */
+.section-hero { --section-accent: var(--color-accent-hero); --section-glow: var(--color-glow-hero); }
+.section-projects { --section-accent: var(--color-accent-projects); --section-glow: var(--color-glow-projects); }
+.section-experience { --section-accent: var(--color-accent-experience); --section-glow: var(--color-glow-experience); }
+.section-skills { --section-accent: var(--color-accent-skills); --section-glow: var(--color-glow-skills); }
+.section-blog { --section-accent: var(--color-accent-blog); --section-glow: var(--color-glow-blog); }

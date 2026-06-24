@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+# Editors
+.vscode/
+.idea/
+# Caches and logs
+*.log
+.cache/
+# Build outputs
+dist/
+build/
+# Dependencies
+node_modules/
+# Astro type cache
+.astro/
+# Legacy
+.kilocode/

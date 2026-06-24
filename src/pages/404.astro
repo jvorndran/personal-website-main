@@ -1,0 +1,60 @@
+---
+import BaseHead from '../components/layout/BaseHead.astro';
+import SkipLink from '../components/layout/SkipLink.astro';
+import GlitchText from '../components/ui/GlitchText.astro';
+import '../styles/global.css';
+
+const homeURL = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<!doctype html>
+<html lang="en" data-theme="auto">
+  <head>
+    <BaseHead
+      title="Page Not Found - Jacob Vorndran"
+      description="The page you're looking for doesn't exist."
+      noindex={true}
+    />
+  </head>
+  <body class="section-hero flex min-h-screen flex-col bg-bg text-text">
+    <SkipLink />
+
+    <main id="content" class="flex flex-1 items-center justify-center px-6">
+      <div class="text-center">
+        <GlitchText
+          text="404"
+          tag="p"
+          class="text-[clamp(4rem,12vw,8rem)] font-bold leading-none text-accent-hero"
+        />
+        <h1 class="mt-4 text-2xl font-bold md:text-3xl">Page Not Found</h1>
+        <p class="mt-3 text-muted">
+          The page you're looking for doesn't exist or may have been moved.
+        </p>
+
+        <!-- Terminal error output -->
+        <div class="mx-auto mt-6 max-w-sm rounded-lg border border-border/40 bg-surface/20 p-4 text-left font-mono text-xs text-muted/60">
+          <p><span class="text-accent-hero">$</span> curl -I /requested-page</p>
+          <p class="mt-1 text-red-400/70">HTTP/1.1 404 Not Found</p>
+          <p class="text-muted/40">Connection: close</p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href={homeURL}
+            class="rounded-lg border border-accent-hero/60 bg-accent-hero/10 px-5 py-2.5 text-sm font-semibold text-accent-hero transition-all hover:bg-accent-hero hover:text-bg hover:shadow-[0_0_24px_var(--color-glow-hero)]"
+          >
+            Go Home
+          </a>
+          <a
+            href="mailto:jvorndran400@gmail.com?subject=Hello%20from%20jvorndran.github.io&body=Hi%20Jacob%2C%0A%0A"
+            class="rounded-lg border border-border/60 px-5 py-2.5 text-sm text-muted transition-all hover:border-accent-hero/60 hover:text-text"
+          >
+            Email Me
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

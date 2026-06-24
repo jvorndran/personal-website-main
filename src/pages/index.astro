@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import ProjectsSection from '../components/sections/ProjectsSection.astro';
+import ExperienceSection from '../components/sections/ExperienceSection.astro';
+import SkillsSection from '../components/sections/SkillsSection.astro';
+import CircuitTrace from '../components/ui/CircuitTrace.astro';
+
+const description = 'Software Engineer building performant web platforms, cloud-backed data workflows, RAG tooling, and developer tools with React, TypeScript, Headless AEM, and Google Cloud.';
+---
+
+<BaseLayout
+  title="Jacob Vorndran - Software Engineer"
+  description={description}
+>
+  <HeroSection />
+  <CircuitTrace fromColor="hero" toColor="projects" />
+  <ProjectsSection />
+  <CircuitTrace fromColor="projects" toColor="experience" />
+  <ExperienceSection />
+  <CircuitTrace fromColor="experience" toColor="skills" />
+  <SkillsSection />
+</BaseLayout>
+
+<script>
+  import { initScrollReveal } from '../scripts/scroll-reveal';
+
+  document.addEventListener('astro:page-load', initScrollReveal);
+  initScrollReveal();
+</script>

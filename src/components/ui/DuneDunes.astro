@@ -1,0 +1,125 @@
+---
+// Dune theme: layered dunes + distant rider — parchment sky band, stippled grain via parent ::before
+---
+
+<div class="dune-dunes-layer" aria-hidden="true">
+  <svg
+    class="dune-dunes-svg"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 2400 520"
+    preserveAspectRatio="xMidYMax slice"
+  >
+    <defs>
+      <linearGradient id="dune-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color: #f3d8a8; stop-opacity: 1" />
+        <stop offset="40%" style="stop-color: #ecc99a; stop-opacity: 1" />
+        <stop offset="100%" style="stop-color: #f0dcc0; stop-opacity: 1" />
+      </linearGradient>
+      <linearGradient id="dune-far" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color: #f19c38; stop-opacity: 0.58" />
+        <stop offset="100%" style="stop-color: #d05020; stop-opacity: 0.95" />
+      </linearGradient>
+      <linearGradient id="dune-mid" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color: #f4a85c; stop-opacity: 0.65" />
+        <stop offset="100%" style="stop-color: #e3521e; stop-opacity: 0.95" />
+      </linearGradient>
+      <linearGradient id="dune-near" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color: #eb7020; stop-opacity: 0.92" />
+        <stop offset="100%" style="stop-color: #a53018; stop-opacity: 1" />
+      </linearGradient>
+    </defs>
+
+    <!-- Day sky -->
+    <rect width="2400" height="150" x="0" y="0" fill="url(#dune-sky)" />
+    <circle cx="1980" cy="72" r="38" fill="#e88830" opacity="0.48" />
+    <circle cx="1980" cy="72" r="28" fill="#f5b860" opacity="0.42" />
+
+    <g class="dune-dunes-parallax">
+      <path
+        fill="url(#dune-far)"
+        d="M0,280 C300,200 500,260 800,220 C1100,180 1300,240 1600,200 C1900,160 2100,200 2400,175 L2400,520 L0,520 Z"
+      />
+      <path
+        fill="url(#dune-mid)"
+        opacity="0.95"
+        d="M0,320 C280,260 520,300 780,270 C1040,240 1180,290 1450,265 C1680,245 1880,285 2150,255 C2280,242 2360,258 2400,250 L2400,520 L0,520 Z"
+      />
+      <path
+        fill="#c9431a"
+        opacity="0.88"
+        d="M0,360 C400,310 700,350 1000,320 C1280,295 1500,340 1800,315 C2000,300 2200,325 2400,310 L2400,520 L0,520 Z"
+      />
+      <path
+        fill="url(#dune-near)"
+        d="M0,400 C360,360 640,395 960,370 C1220,350 1480,405 1780,375 C1980,360 2180,390 2400,372 L2400,520 L0,520 Z"
+      />
+      <path
+        fill="#8a3818"
+        opacity="0.95"
+        d="M0,430 C320,405 600,438 920,418 C1180,402 1420,448 1750,425 C2000,410 2220,435 2400,420 L2400,520 L0,520 Z"
+      />
+
+      <!-- Distant rider + worm silhouette (dark on bright sky) -->
+      <g
+        transform="translate(1680, 198) scale(0.42)"
+        opacity="0.5"
+        fill="#2a1810"
+      >
+        <path
+          d="M-40,8 Q0,-6 40,8 Q80,22 120,10 Q160,-4 200,8 Q240,18 280,6 Q320,-8 360,4 L368,22 L-48,22 Z"
+        />
+        <path d="M100,6 Q140,-2 180,6 L186,16 L94,16 Z" opacity="0.45" fill="#1a1008" />
+        <ellipse cx="188" cy="-2" rx="7" ry="8" />
+        <path d="M182,6 L188,-18 L198,6 Z" />
+        <path
+          d="M175,22 L175,8 M201,22 L201,8"
+          stroke="#1a1008"
+          stroke-width="5"
+          stroke-linecap="round"
+          fill="none"
+        />
+      </g>
+    </g>
+  </svg>
+</div>
+
+<style>
+  .dune-dunes-layer {
+    display: none;
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    overflow: hidden;
+  }
+
+  :global(html[data-theme="dune"]) .dune-dunes-layer {
+    display: block;
+  }
+
+  .dune-dunes-svg {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 135vw;
+    min-width: 1200px;
+    height: min(52vh, 520px);
+    transform: translateX(-50%);
+    color: transparent;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .dune-dunes-parallax {
+      animation: dune-drift 200s linear infinite;
+    }
+  }
+
+  @keyframes dune-drift {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-4%);
+    }
+  }
+</style>

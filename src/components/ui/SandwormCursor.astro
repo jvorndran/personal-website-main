@@ -1,0 +1,25 @@
+---
+// Dune theme: spring-physics sandworm cursor (canvas injected client-side)
+---
+
+<script>
+  import { mountSandwormCursorController } from "../../scripts/sandworm-cursor";
+
+  let release: (() => void) | null = null;
+
+  function boot(): void {
+    release?.();
+    release = mountSandwormCursorController();
+  }
+
+  document.addEventListener("astro:page-load", boot);
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => requestAnimationFrame(boot),
+      { once: true },
+    );
+  } else {
+    requestAnimationFrame(boot);
+  }
+</script>

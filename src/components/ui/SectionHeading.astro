@@ -1,0 +1,24 @@
+---
+interface Props {
+  id: string;
+  label: string;
+  tag?: string;
+}
+
+const { id, label, tag } = Astro.props;
+---
+
+<div class="reveal mb-12 flex items-center gap-4">
+  <div class="flex items-center gap-3">
+    {tag && (
+      <span class="hud-status text-[0.6rem]">{tag}</span>
+    )}
+    <h2
+      id={id}
+      class="text-2xl font-bold tracking-tight text-text md:text-3xl"
+    >
+      <span class="section-prefix text-[var(--section-accent)] opacity-60" aria-hidden="true">//</span> {label}
+    </h2>
+  </div>
+  <div class="divider-line h-px flex-1 bg-gradient-to-r from-[var(--section-accent)]/30 to-transparent" />
+</div>

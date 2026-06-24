@@ -1,0 +1,45 @@
+{
+  "certifications": [
+    {
+      "name": "Associate Cloud Engineer",
+      "issuer": "Google Cloud Certified",
+      "iconSrc": "/images/google-cloud-logo.svg",
+      "iconAlt": "Google Cloud logo",
+      "skills": [
+        "Cloud project setup",
+        "IAM & service accounts",
+        "Billing, budgets & quotas",
+        "Compute Engine",
+        "Cloud Run & GKE",
+        "VPC networking",
+        "Cloud Storage & databases",
+        "Monitoring & logging",
+        "gcloud CLI operations"
+      ]
+    }
+  ],
+  "honors": [],
+  "categories": [
+    {
+      "name": "Languages",
+      "skills": ["TypeScript", "JavaScript", "Java", "Python", "PHP", "SQL", "HTML/CSS"]
+    },
+    {
+      "name": "Frameworks",
+      "skills": ["React", "Node.js", "Express", "Tailwind CSS", "Django", "Flask", "Streamlit", "LangChain"]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "skills": ["Google Cloud Platform", "Cloud Run", "Cloud SQL", "Docker", "GitHub Actions", "Terraform"]
+    },
+    {
+      "name": "Enterprise & Data",
+      "skills": ["Headless AEM", "Akamai", "Qdrant", "Power BI", "OpenCV", "PyTesseract"]
+    },
+    {
+      "name": "Testing",
+      "skills": ["Cypress", "Cucumber", "Gherkin", "Jest"]
+    }
+  ],
+  "languages": []
+}

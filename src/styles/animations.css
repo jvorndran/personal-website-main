@@ -1,0 +1,94 @@
+/* --- Keyframe Definitions --- */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    text-shadow: 0 0 2px var(--section-accent, var(--color-accent-hero));
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    text-shadow:
+      -2px 0 var(--glitch-color-a, oklch(0.78 0.15 194)),
+      2px 2px var(--glitch-color-b, oklch(0.7 0.2 330));
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    text-shadow:
+      2px -2px var(--glitch-color-a, oklch(0.78 0.15 194)),
+      -2px 2px var(--glitch-color-b, oklch(0.7 0.2 330));
+  }
+  60% {
+    transform: translate(2px, 2px);
+    text-shadow:
+      -2px -2px var(--glitch-color-a, oklch(0.78 0.15 194)),
+      2px 2px var(--glitch-color-b, oklch(0.7 0.2 330));
+  }
+  80% {
+    transform: translate(2px, -2px);
+    text-shadow:
+      -2px 0 var(--glitch-color-a, oklch(0.78 0.15 194)),
+      2px -2px var(--glitch-color-b, oklch(0.7 0.2 330));
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: 0 0 2px var(--section-accent, var(--color-accent-hero));
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 4px var(--section-glow, oklch(0.6 0.2 194 / 0.3));
+  }
+  50% {
+    box-shadow: 0 0 20px var(--section-glow, oklch(0.6 0.2 194 / 0.3));
+  }
+}
+
+@keyframes circuit-draw {
+  from {
+    stroke-dashoffset: var(--path-length, 500);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes nudge-right {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}

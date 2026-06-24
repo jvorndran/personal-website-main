@@ -1,0 +1,30 @@
+---
+// Three.js particle network canvas — fixed behind all content
+---
+
+<canvas
+  id="particle-canvas"
+  class="fixed inset-0 -z-10 h-full w-full"
+  aria-hidden="true"
+/>
+
+<script>
+  async function init() {
+    // Gate on reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement | null;
+    if (!canvas) return;
+
+    // Dynamic import for tree-shaking
+    const { initParticleNetwork } = await import('../../scripts/particle-network');
+    initParticleNetwork(canvas);
+  }
+
+  // Wait for DOM ready before loading Three.js
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

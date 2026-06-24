@@ -1,0 +1,24 @@
+---
+interface Props {
+  title?: string;
+  class?: string;
+}
+
+const { title = 'terminal', class: className = '' } = Astro.props;
+---
+
+<div class:list={['terminal-window overflow-hidden rounded-lg border border-border bg-surface/30', className]}>
+  <!-- Title bar -->
+  <div class="flex items-center gap-2 border-b border-border/50 bg-bg/60 px-4 py-2.5">
+    <div class="terminal-dots flex gap-1.5">
+      <span class="h-2.5 w-2.5 rounded-full bg-red-500/70" />
+      <span class="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+      <span class="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+    </div>
+    <span class="ml-2 text-[0.65rem] text-muted/60">{title}</span>
+  </div>
+  <!-- Content -->
+  <div class="p-5 font-mono text-sm leading-relaxed">
+    <slot />
+  </div>
+</div>

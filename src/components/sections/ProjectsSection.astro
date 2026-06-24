@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from '../ui/SectionHeading.astro';
+import TerminalWindow from '../ui/TerminalWindow.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+
+function projectDetail(body: string): string {
+  return body
+    .split(/\n\s*\n/)
+    .map((part) => part.trim())
+    .find(Boolean) ?? '';
+}
+---
+
+<section
+  id="projects"
+  class="section-projects py-24"
+  aria-labelledby="projects-heading"
+>
+  <div class="mx-auto max-w-5xl px-6">
+    <SectionHeading id="projects-heading" label="Projects" tag="SEC.02" />
+
+    <TerminalWindow title="~/projects" class="reveal">
+      <div class="space-y-1">
+        <div class="text-muted mb-3">
+          <span class="text-accent-projects">$</span> <span class="terminal-type">ls -la ./projects/</span>
+        </div>
+
+        {projects.map((project) => (
+          <div class="group rounded-lg border border-border/30 bg-surface/10 px-4 py-3.5 transition-all hover:border-accent-projects/40 hover:bg-surface/30 hover:shadow-[0_0_16px_var(--color-glow-projects)]">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-2">
+                  <span class="text-accent-projects opacity-70 transition-opacity group-hover:opacity-100">▸</span>
+                  <h3 class="font-semibold text-text transition-colors group-hover:text-accent-projects">{project.data.title}</h3>
+                  <span class="rounded border border-border/60 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-wider text-muted/60">
+                    {project.data.status}
+                  </span>
+                </div>
+                <p class="mt-1.5 text-sm leading-relaxed text-muted">{project.data.description}</p>
+                {projectDetail(project.body) && (
+                  <p class="mt-2 text-xs leading-relaxed text-muted/70">{projectDetail(project.body)}</p>
+                )}
+              </div>
+
+              <div class="flex gap-2">
+                {project.data.github && (
+                  <a
+                    href={project.data.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="rounded border border-border/60 px-2.5 py-1 text-xs text-muted transition-all hover:border-accent-projects/60 hover:text-accent-projects"
+                    aria-label={`View ${project.data.title} on GitHub`}
+                  >
+                    Code
+                  </a>
+                )}
+                {project.data.url && (
+                  <a
+                    href={project.data.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="rounded border border-accent-projects/60 bg-accent-projects/10 px-2.5 py-1 text-xs text-accent-projects transition-all hover:bg-accent-projects hover:text-bg"
+                    aria-label={`Visit ${project.data.title}`}
+                  >
+                    Live
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <div class="mt-2.5 flex flex-wrap gap-1.5">
+              {project.data.tags.map((tag: string) => (
+                <span class="rounded bg-accent-projects/10 px-2 py-0.5 text-[0.6rem] text-accent-projects/80">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <div class="mt-4 text-muted">
+          <span class="text-accent-projects">$</span> <span class="animate-[blink-cursor_0.6s_step-end_infinite] inline-block w-2 h-4 bg-accent-projects align-middle" />
+        </div>
+      </div>
+    </TerminalWindow>
+  </div>
+</section>

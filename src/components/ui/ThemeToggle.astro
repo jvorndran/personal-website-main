@@ -1,0 +1,260 @@
+---
+// Theme popover — direct selection from themes
+---
+
+<div class="relative" id="theme-wrapper">
+  <button
+    id="theme-toggle"
+    type="button"
+    aria-label="Choose theme"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="group relative flex items-center gap-2 rounded border border-border bg-surface/50 px-3 py-2 text-xs uppercase tracking-widest text-muted transition-all hover:border-[var(--section-accent,var(--color-accent-hero))] hover:text-text"
+  >
+    <!-- Auto icon (half circle) -->
+    <svg data-theme-icon="auto" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 2a10 10 0 000 20V2z" fill="currentColor" />
+    </svg>
+    <!-- Moon icon -->
+    <svg data-theme-icon="dark" class="hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+    </svg>
+    <!-- Sun icon -->
+    <svg data-theme-icon="light" class="hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="5" />
+      <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+    </svg>
+    <!-- Dunes icon -->
+    <svg data-theme-icon="dune" class="hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+      <path d="M2 16c3-6 7-9 10-9s6 4 10 9" />
+      <path d="M6 18c2.5-4 5.5-6 8-6s5.5 3 8 6" opacity="0.65" />
+    </svg>
+    <!-- Arcade: simple gamepad -->
+    <svg data-theme-icon="arcade" class="hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="7" width="18" height="12" rx="3" />
+      <path d="M8 13v4M6 15h4" />
+      <circle cx="16" cy="14" r="1.25" fill="currentColor" stroke="none" />
+      <circle cx="18.5" cy="16.5" r="1.25" fill="currentColor" stroke="none" />
+    </svg>
+    <span id="theme-label">Auto</span>
+    <svg class="h-3 w-3 opacity-50 transition-transform" id="theme-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M3 5l3 3 3-3" />
+    </svg>
+  </button>
+
+  <!-- Popover panel -->
+  <div
+    id="theme-popover"
+    role="menu"
+    aria-label="Select theme"
+    class="absolute z-[45] hidden min-w-[140px] flex-col overflow-hidden rounded border border-border bg-surface/95 shadow-lg backdrop-blur-md"
+  >
+    <button role="menuitemradio" data-theme-option="auto" aria-checked="false"
+      class="theme-option flex items-center gap-2.5 px-3 py-2 text-left text-xs uppercase tracking-widest text-muted transition-colors hover:bg-border/30 hover:text-text">
+      <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10" /><path d="M12 2a10 10 0 000 20V2z" fill="currentColor" />
+      </svg>
+      Auto
+    </button>
+    <button role="menuitemradio" data-theme-option="dark" aria-checked="false"
+      class="theme-option flex items-center gap-2.5 px-3 py-2 text-left text-xs uppercase tracking-widest text-muted transition-colors hover:bg-border/30 hover:text-text">
+      <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+      </svg>
+      Dark
+    </button>
+    <button role="menuitemradio" data-theme-option="light" aria-checked="false"
+      class="theme-option flex items-center gap-2.5 px-3 py-2 text-left text-xs uppercase tracking-widest text-muted transition-colors hover:bg-border/30 hover:text-text">
+      <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5" />
+        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+      </svg>
+      Light
+    </button>
+    <button role="menuitemradio" data-theme-option="dune" aria-checked="false"
+      class="theme-option flex items-center gap-2.5 px-3 py-2 text-left text-xs uppercase tracking-widest text-muted transition-colors hover:bg-border/30 hover:text-text">
+      <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+        <path d="M2 16c3-6 7-9 10-9s6 4 10 9" />
+        <path d="M6 18c2.5-4 5.5-6 8-6s5.5 3 8 6" opacity="0.65" />
+      </svg>
+      Dune
+    </button>
+    <button role="menuitemradio" data-theme-option="arcade" aria-checked="false"
+      class="theme-option flex items-center gap-2.5 px-3 py-2 text-left text-xs uppercase tracking-widest text-muted transition-colors hover:bg-border/30 hover:text-text">
+      <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="7" width="18" height="12" rx="3" />
+        <path d="M8 13v4M6 15h4" />
+        <circle cx="16" cy="14" r="1.25" fill="currentColor" stroke="none" />
+        <circle cx="18.5" cy="16.5" r="1.25" fill="currentColor" stroke="none" />
+      </svg>
+      Arcade
+    </button>
+  </div>
+</div>
+
+<style>
+  /* Desktop: popover opens left of the nav (right-edge sidebar) */
+  @media (min-width: 768px) {
+    #theme-popover {
+      right: 100%;
+      bottom: 0;
+      margin-right: 0.5rem;
+    }
+    #theme-chevron {
+      transform: rotate(-90deg);
+    }
+    #theme-toggle[aria-expanded="true"] ~ #theme-popover #theme-chevron,
+    #theme-wrapper:has([aria-expanded="true"]) #theme-chevron {
+      transform: rotate(90deg);
+    }
+  }
+
+  /* Mobile: popover opens above the bottom bar */
+  @media (max-width: 767px) {
+    #theme-popover {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 0.5rem;
+    }
+    #theme-chevron {
+      transform: rotate(180deg);
+    }
+  }
+
+  /* Active option styling */
+  .theme-option[aria-checked="true"] {
+    color: var(--color-text);
+    background-color: var(--color-border);
+  }
+
+  /* Popover entrance animation */
+  #theme-popover.open {
+    display: flex;
+    animation: popover-in 0.15s ease-out;
+  }
+
+  @keyframes popover-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px) translateX(-50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) translateX(-50%);
+    }
+  }
+
+  @media (min-width: 768px) {
+    @keyframes popover-in {
+      from {
+        opacity: 0;
+        transform: translateX(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+</style>
+
+<script>
+  import { initThemeToggle, setTheme, STATES, type Theme } from '../../scripts/theme';
+
+  function initPopover() {
+    const wrapper = document.getElementById('theme-wrapper');
+    const btn = document.getElementById('theme-toggle');
+    const popover = document.getElementById('theme-popover');
+    const label = document.getElementById('theme-label');
+    if (!wrapper || !btn || !popover || !label) return;
+
+    // Bind to non-null locals for closure safety (Astro checker doesn't propagate narrowing)
+    const $btn = btn;
+    const $popover = popover;
+    const $label = label;
+
+    function syncUI() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'auto';
+
+      document.querySelectorAll<SVGElement>('[data-theme-icon]').forEach((icon) => {
+        icon.classList.toggle('hidden', icon.dataset.themeIcon !== theme);
+      });
+
+      const labels: Record<string, string> = {
+        dune: 'Dune',
+        arcade: 'Arcade',
+      };
+      $label.textContent =
+        labels[theme] ?? theme.charAt(0).toUpperCase() + theme.slice(1);
+
+      $popover.querySelectorAll<HTMLElement>('[data-theme-option]').forEach((opt) => {
+        opt.setAttribute('aria-checked', String(opt.dataset.themeOption === theme));
+      });
+    }
+
+    function openPopover() {
+      $popover.classList.remove('hidden');
+      $popover.classList.add('open');
+      $btn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closePopover() {
+      $popover.classList.add('hidden');
+      $popover.classList.remove('open');
+      $btn.setAttribute('aria-expanded', 'false');
+    }
+
+    $btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = $btn.getAttribute('aria-expanded') === 'true';
+      if (isOpen) closePopover();
+      else openPopover();
+    });
+
+    $popover.querySelectorAll<HTMLElement>('[data-theme-option]').forEach((opt) => {
+      opt.addEventListener('click', () => {
+        const theme = opt.dataset.themeOption as Theme;
+        if (STATES.includes(theme)) {
+          setTheme(theme);
+          syncUI();
+        }
+        closePopover();
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if ($btn.getAttribute('aria-expanded') !== 'true') return;
+      if (!wrapper.contains(e.target as Node)) closePopover();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && $btn.getAttribute('aria-expanded') === 'true') {
+        closePopover();
+        $btn.focus();
+      }
+    });
+
+    const observer = new MutationObserver(syncUI);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+
+    syncUI();
+  }
+
+  // Guard against double-init (top-level + astro:page-load may both fire)
+  let initialized = false;
+  function boot() {
+    if (initialized) return;
+    initialized = true;
+    initThemeToggle();
+    initPopover();
+  }
+
+  // Top-level for immediate execution; astro:page-load for SPA navigations
+  document.addEventListener('astro:page-load', boot);
+  boot();
+</script>

@@ -1,0 +1,45 @@
+---
+import BaseHead from '../components/layout/BaseHead.astro';
+import SkipLink from '../components/layout/SkipLink.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import BootSequence from '../components/boot/BootSequence.astro';
+import ParticleNetwork from '../components/three/ParticleNetwork.astro';
+import DuneDunes from '../components/ui/DuneDunes.astro';
+import ScrollProgress from '../components/ui/ScrollProgress.astro';
+import SandwormCursor from '../components/ui/SandwormCursor.astro';
+import ArcadeEasterEggs from '../components/ui/ArcadeEasterEggs.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const { title, description, image, noindex } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="auto">
+  <head>
+    <BaseHead title={title} description={description} image={image} noindex={noindex} />
+  </head>
+  <body class="hud-scanlines min-h-screen bg-bg text-text">
+    <BootSequence />
+    <ParticleNetwork />
+    <DuneDunes />
+    <!-- Must precede SandwormCursor script so #sandworm-cursor-root exists when the client bundle runs -->
+    <div id="sandworm-cursor-root" class="sandworm-cursor-root" aria-hidden="true"></div>
+    <SandwormCursor />
+    <SkipLink />
+    <ScrollProgress />
+    <Header />
+    <main id="content" class="relative z-10">
+      <slot />
+    </main>
+    <Footer />
+    <ArcadeEasterEggs />
+  </body>
+</html>

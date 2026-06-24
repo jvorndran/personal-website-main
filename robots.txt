@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jvorndran.github.io/personal-website-main/sitemap.xml

@@ -1,0 +1,88 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalURL?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = '/images/og-default.png',
+  canonicalURL = Astro.url.href,
+  noindex = false,
+} = Astro.props;
+
+const siteURL = 'https://jvorndran.github.io/personal-website-main';
+const basePath = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const assetPath = (path: string) => `${basePath}${path.replace(/^\//, '')}`;
+const fullImageURL = image.startsWith('http') ? image : `${siteURL}/${image.replace(/^\//, '')}`;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<link rel="canonical" href={canonicalURL} />
+{noindex && <meta name="robots" content="noindex" />}
+<meta name="description" content={description} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:image" content={fullImageURL} />
+<meta property="og:image:alt" content="Jacob Vorndran - Software Engineer" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullImageURL} />
+<meta name="twitter:image:alt" content="Jacob Vorndran - Software Engineer" />
+
+<!-- Theme Color - aligned with default light/dark surfaces (global.css) -->
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f1f2f6" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#080a12" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href={assetPath('/images/favicon-32x32.png')} />
+<link rel="icon" type="image/png" sizes="16x16" href={assetPath('/images/favicon-16x16.png')} />
+<link rel="apple-touch-icon" href={assetPath('/images/apple-touch-icon.png')} />
+<link rel="manifest" href={assetPath('/site.webmanifest')} />
+
+<!-- Fonts: JetBrains Mono (body), Sora (default headings), Marcellus / Silkscreen (themes) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Marcellus&family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- JSON-LD Structured Data -->
+<script is:inline type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jacob Vorndran",
+  "jobTitle": "Software Engineer",
+  "url": siteURL,
+  "email": "mailto:jvorndran400@gmail.com",
+  "image": fullImageURL,
+  "sameAs": [
+    "https://www.linkedin.com/in/jacob-vorndran-97baa6294",
+    "https://github.com/jvorndran"
+  ]
+})} />
+
+<!-- FOUC prevention: set data-theme before paint -->
+<script is:inline>
+(function(){
+  var d=document.documentElement,k='theme',s;
+  try{s=localStorage.getItem(k)}catch(e){}
+  d.setAttribute('data-theme',s&&['auto','dark','light','dune','arcade'].includes(s)?s:'auto');
+})();
+</script>

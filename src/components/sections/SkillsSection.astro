@@ -1,0 +1,128 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import BadgeShield from '../ui/BadgeShield.astro';
+import skillsData from '../../content/skills.json';
+
+interface Certification {
+  name: string;
+  issuer: string;
+  icon?: string;
+  iconSrc?: string;
+  iconAlt?: string;
+  skills?: string[];
+}
+
+interface Honor {
+  name: string;
+  org: string;
+}
+
+interface SkillCategory {
+  name: string;
+  skills: string[];
+}
+
+interface Language {
+  name: string;
+  level: string;
+}
+
+const { certifications, honors, categories, languages } = skillsData as {
+  certifications: Certification[];
+  honors: Honor[];
+  categories: SkillCategory[];
+  languages: Language[];
+};
+---
+
+<section
+  id="skills"
+  class="section-skills py-24"
+  aria-labelledby="skills-heading"
+>
+  <div class="mx-auto max-w-5xl px-6">
+    <SectionHeading id="skills-heading" label="Skills & Certifications" tag="SEC.04" />
+
+    {certifications.length > 0 && (
+      <!-- Certifications grid -->
+      <div class="mb-16 reveal">
+        <h3 class="mb-5 flex items-center gap-3 text-sm uppercase tracking-widest text-muted">
+          <span class="h-px w-8 bg-accent-skills/40" />
+          Certifications
+        </h3>
+        <div class="grid gap-3">
+          {certifications.map((cert) => (
+            <BadgeShield
+              name={cert.name}
+              issuer={cert.issuer}
+              icon={cert.icon}
+              iconSrc={cert.iconSrc}
+              iconAlt={cert.iconAlt}
+              skills={cert.skills}
+            />
+          ))}
+        </div>
+      </div>
+    )}
+
+    {honors.length > 0 && (
+      <!-- Honors & Awards -->
+      <div class="mb-16 reveal">
+        <h3 class="mb-5 flex items-center gap-3 text-sm uppercase tracking-widest text-muted">
+          <span class="h-px w-8 bg-accent-skills/40" />
+          Honors & Awards
+        </h3>
+        <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          {honors.map((honor) => (
+            <div class="flex items-center gap-3 rounded-lg border border-border/50 bg-surface/20 px-4 py-2.5 transition-all hover:border-accent-skills/50 hover:bg-surface/30 hover:shadow-[0_0_16px_var(--color-glow-skills)]">
+              <span class="text-accent-skills text-sm">&#9670;</span>
+              <div class="min-w-0">
+                <div class="truncate text-sm text-text">{honor.name}</div>
+                <div class="truncate text-xs text-muted">{honor.org}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Skill categories -->
+    <div class="mb-16 space-y-8">
+      {categories.map((cat, i) => (
+        <div class="reveal" style={`transition-delay: ${i * 80}ms`}>
+          <h3 class="mb-3 flex items-center gap-3 text-sm uppercase tracking-widest text-muted">
+            <span class="h-px w-8 bg-accent-skills/40" />
+            {cat.name}
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            {cat.skills.map((skill: string) => (
+              <span class="rounded-lg border border-border/60 bg-surface/20 px-3 py-1.5 text-sm text-text transition-all hover:border-accent-skills/60 hover:bg-surface/30 hover:shadow-[0_0_12px_var(--color-glow-skills)]">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {languages.length > 0 && (
+      <!-- Languages -->
+      <div class="reveal">
+        <h3 class="mb-5 flex items-center gap-3 text-sm uppercase tracking-widest text-muted">
+          <span class="h-px w-8 bg-accent-skills/40" />
+          Languages
+        </h3>
+        <div class="flex flex-wrap gap-4">
+          {languages.map((lang) => (
+            <div class="flex items-center gap-2.5 rounded-lg border border-border/50 bg-surface/20 px-4 py-2.5 transition-all hover:border-accent-skills/40">
+              <span class="text-sm font-semibold text-text">{lang.name}</span>
+              <span class="rounded bg-accent-skills/10 px-2 py-0.5 text-[0.6rem] text-accent-skills">
+                {lang.level}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</section>

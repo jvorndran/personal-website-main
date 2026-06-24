@@ -1,0 +1,61 @@
+{
+  "work": [
+    {
+      "title": "Software Engineer",
+      "org": "Dun & Bradstreet",
+      "location": "Jacksonville, FL",
+      "period": "Jan 2025 - Present",
+      "logoSrc": "/images/dun-bradstreet-logo.svg",
+      "logoAlt": "Dun & Bradstreet logo",
+      "description": "Full-time engineering role focused on dnb.com performance, AI-assisted quality automation, international migration work, and platform modernization across the Headless AEM stack.",
+      "highlights": [
+        "Improved dnb.com Core Web Vitals from poor to near-perfect across a public-estimated 3.6M monthly visits, strengthening a channel where ~48% of traffic comes from organic search and supporting a modeled $1M+ six-month revenue opportunity.",
+        "Built a 0-to-1, Dockerized AI-enabled E2E testing framework for critical user and business workflows, integrating it into CI/CD and natural-language QA authoring to create a repeatable release-quality gate and reduce regression risk.",
+        "Led DUNS expansion verification with automated E2E coverage and AI-assisted validation/reporting, compressing large-scale readiness testing into roughly one month and replacing weeks of manual QA effort for a business-critical launch.",
+        "Shipped migration features across 15+ international markets, including Canada and UK DUNS Lookup, business-controlled 400/404/500 multilingual error pages, and Akamai/Adobe Dispatcher geo-redirection, accelerating localized launch readiness.",
+        "Supported production releases by resolving critical CTA, content fragment, form ID, cookie categorization, language URL, GA/GTM, and Marketo issues; upgraded the platform from Java 11 to Java 21 with zero production incidents or release rollbacks.",
+        "Prototyped 2+ AI-powered Aibe concepts, including retrieval-based site intelligence and developer portal foundations, establishing reusable direction for future AI-assisted customer support and developer ecosystem initiatives."
+      ],
+      "tags": ["React", "Headless AEM", "Core Web Vitals", "AI Automation", "Akamai", "Java 21"]
+    },
+    {
+      "title": "Software Engineering Intern",
+      "org": "Dun & Bradstreet",
+      "location": "Jacksonville, FL",
+      "period": "May 2024 - Dec 2024",
+      "logoSrc": "/images/dun-bradstreet-logo.svg",
+      "logoAlt": "Dun & Bradstreet logo",
+      "description": "Engineered a serverless LangChain workflow containerized with Docker and deployed via Google Cloud Scheduler and Cloud Run to process 20,000+ social data points annually. Built the pipeline to feed real-time Power BI dashboards and provisioned a Google Cloud MySQL database with Terraform.",
+      "tags": ["LangChain", "Docker", "Google Cloud", "Power BI", "Terraform"]
+    },
+    {
+      "title": "Web Developer",
+      "org": "BamM Tickets",
+      "location": "Remote",
+      "period": "Nov 2023 - May 2024",
+      "logoSrc": "/images/bamm-tickets-logo.png",
+      "logoAlt": "BAMM Tickets logo",
+      "description": "Engineered a secure digital wallet integration using Apple PassKit and Google Wallet API, managing PKI signing and encryption to deliver tickets to thousands of active users.",
+      "tags": ["Apple PassKit", "Google Wallet API", "PKI", "Encryption"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master's in Artificial Intelligence",
+      "school": "Georgia Institute of Technology",
+      "period": "2026 - Present",
+      "logoSrc": "/images/georgia-tech-logo.png",
+      "logoAlt": "Georgia Tech logo",
+      "highlights": ["Graduate study in artificial intelligence"]
+    },
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "school": "University of North Florida",
+      "period": "Graduated Dec 2024",
+      "logoSrc": "/images/unf-logo.png",
+      "logoAlt": "University of North Florida logo",
+      "highlights": ["Activities: UNF Men's Lacrosse Team"]
+    }
+  ],
+  "publications": []
+}
