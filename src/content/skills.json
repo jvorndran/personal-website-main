@@ -22,23 +22,94 @@
   "categories": [
     {
       "name": "Languages",
-      "skills": ["TypeScript", "JavaScript", "Java", "Python", "PHP", "SQL", "HTML/CSS"]
+      "skills": ["TypeScript", "JavaScript", "Java", "Python", "SQL", "PHP", "HTML/CSS"]
     },
     {
-      "name": "Frameworks",
-      "skills": ["React", "Node.js", "Express", "Tailwind CSS", "Django", "Flask", "Streamlit", "LangChain"]
+      "name": "Frontend, UX & Performance",
+      "skills": [
+        "React",
+        "Astro",
+        "Tailwind CSS",
+        "Responsive UI",
+        "Core Web Vitals",
+        "LCP optimization",
+        "SEO",
+        "Accessibility"
+      ]
     },
     {
       "name": "Cloud & DevOps",
-      "skills": ["Google Cloud Platform", "Cloud Run", "Cloud SQL", "Docker", "GitHub Actions", "Terraform"]
+      "skills": [
+        "Google Cloud Platform",
+        "Cloud Run",
+        "Cloud Scheduler",
+        "Cloud SQL",
+        "Compute Engine",
+        "Docker",
+        "Terraform",
+        "GitHub Actions",
+        "CI/CD",
+        "Monitoring & logging"
+      ]
     },
     {
-      "name": "Enterprise & Data",
-      "skills": ["Headless AEM", "Akamai", "Qdrant", "Power BI", "OpenCV", "PyTesseract"]
+      "name": "Backend, APIs & Integrations",
+      "skills": [
+        "Node.js",
+        "Express",
+        "Django",
+        "Flask",
+        "Streamlit",
+        "REST APIs",
+        "Square API",
+        "Apple PassKit",
+        "Google Wallet API",
+        "PKI signing",
+        "Encryption"
+      ]
     },
     {
-      "name": "Testing",
-      "skills": ["Cypress", "Cucumber", "Gherkin", "Jest"]
+      "name": "AI, Automation & Data",
+      "skills": [
+        "LangChain",
+        "LLM workflows",
+        "AI-assisted testing",
+        "Natural-language QA",
+        "Prompt engineering",
+        "Vector search",
+        "Qdrant",
+        "Power BI",
+        "MySQL",
+        "OpenCV",
+        "PyTesseract"
+      ]
+    },
+    {
+      "name": "Testing & Release Quality",
+      "skills": [
+        "E2E testing",
+        "Cypress",
+        "Cucumber",
+        "Gherkin",
+        "Jest",
+        "Regression automation",
+        "Release validation",
+        "Dockerized test execution"
+      ]
+    },
+    {
+      "name": "Enterprise Platforms & Analytics",
+      "skills": [
+        "Headless AEM",
+        "Adobe Dispatcher",
+        "Akamai",
+        "Java 21 modernization",
+        "Geo-redirection",
+        "Internationalization",
+        "GA/GTM",
+        "Marketo",
+        "Chrome UX Report"
+      ]
     }
   ],
   "languages": []
