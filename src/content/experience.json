@@ -24,7 +24,12 @@
       "period": "May 2024 - Dec 2024",
       "logoSrc": "/images/dun-bradstreet-logo.svg",
       "logoAlt": "Dun & Bradstreet logo",
-      "description": "Engineered a serverless LangChain workflow containerized with Docker and deployed via Google Cloud Scheduler and Cloud Run to process 20,000+ social data points annually. Built the pipeline to feed real-time Power BI dashboards and provisioned a Google Cloud MySQL database with Terraform.",
+      "description": "Built cloud-native data and AI automation for social intelligence reporting, combining LangChain, Docker, Google Cloud, Terraform, and Power BI to turn raw signals into business-ready visibility.",
+      "highlights": [
+        "Automated processing for 20,000+ annual social data points with a scheduled Cloud Run pipeline, replacing recurring manual data preparation and saving an estimated 100+ analyst hours per year.",
+        "Fed real-time Power BI dashboards from a Google Cloud MySQL database provisioned with Terraform, reducing reporting lag from periodic exports to always-current stakeholder visibility.",
+        "Containerized a serverless LangChain workflow with Docker and Google Cloud Scheduler, creating a repeatable pattern for AI-assisted data processing that lowered operational support effort."
+      ],
       "tags": ["LangChain", "Docker", "Google Cloud", "Power BI", "Terraform"]
     },
     {
@@ -34,8 +39,14 @@
       "period": "Nov 2023 - May 2024",
       "logoSrc": "/images/bamm-tickets-logo.png",
       "logoAlt": "BAMM Tickets logo",
-      "description": "Engineered a secure digital wallet integration using Apple PassKit and Google Wallet API, managing PKI signing and encryption to deliver tickets to thousands of active users.",
-      "tags": ["Apple PassKit", "Google Wallet API", "PKI", "Encryption"]
+      "description": "Built customer-facing ticketing features and internal operations tooling across cloud infrastructure, digital wallets, AI-assisted workflows, and inventory systems for a live ticketing platform.",
+      "highlights": [
+        "Engineered a secure digital wallet integration using Apple PassKit and Google Wallet API, managing PKI signing and encryption to deliver tickets to thousands of active users.",
+        "Built Google Cloud-backed services for ticketing and operations workflows, improving reliability for event-day delivery and giving the platform a stronger foundation for future feature growth.",
+        "Developed multiple AI-assisted features that streamlined event and inventory workflows, reducing manual operations effort and creating reusable automation patterns for the team.",
+        "Designed a complex inventory management system synchronized with the Square API, reducing oversell risk and replacing manual reconciliation across ticket and product sales channels."
+      ],
+      "tags": ["Google Cloud", "AI Features", "Square API", "Apple PassKit", "Google Wallet API"]
     }
   ],
   "education": [
