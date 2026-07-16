@@ -1,20 +1,19 @@
 {
   "certifications": [
     {
-      "name": "Associate Cloud Engineer",
-      "issuer": "Google Cloud Certified",
+      "name": "Google Cloud Certified Associate Cloud Engineer (ACE)",
+      "issuer": "Google Cloud · Issued Jun 2026",
       "iconSrc": "/images/google-cloud-logo.svg",
       "iconAlt": "Google Cloud logo",
       "skills": [
-        "Cloud project setup",
-        "IAM & service accounts",
-        "Billing, budgets & quotas",
-        "Compute Engine",
-        "Cloud Run & GKE",
+        "Cloud Run",
+        "Cloud SQL",
+        "IAM",
         "VPC networking",
-        "Cloud Storage & databases",
-        "Monitoring & logging",
-        "gcloud CLI operations"
+        "Cloud Storage",
+        "Compute Engine",
+        "Logging/Monitoring",
+        "Terraform"
       ]
     }
   ],
@@ -22,19 +21,32 @@
   "categories": [
     {
       "name": "Languages",
-      "skills": ["TypeScript", "JavaScript", "Java", "Python", "SQL", "PHP", "HTML/CSS"]
+      "skills": ["TypeScript", "JavaScript", "Java", "Python", "SQL", "HTML/CSS"]
     },
     {
-      "name": "Frontend, UX & Performance",
+      "name": "Frontend & Backend",
       "skills": [
         "React",
-        "Astro",
-        "Tailwind CSS",
-        "Responsive UI",
-        "Core Web Vitals",
-        "LCP optimization",
-        "SEO",
-        "Accessibility"
+        "Node.js",
+        "Express",
+        "FastAPI",
+        "Django",
+        "Flask",
+        "Streamlit",
+        "Tailwind CSS"
+      ]
+    },
+    {
+      "name": "AI, Data & Search",
+      "skills": [
+        "LangChain",
+        "AI agents",
+        "RAG",
+        "MCP",
+        "Qdrant",
+        "Docling",
+        "UMAP",
+        "Power BI"
       ]
     },
     {
@@ -42,73 +54,36 @@
       "skills": [
         "Google Cloud Platform",
         "Cloud Run",
-        "Cloud Scheduler",
         "Cloud SQL",
-        "Compute Engine",
+        "Cloud Scheduler",
         "Docker",
-        "Terraform",
         "GitHub Actions",
-        "CI/CD",
-        "Monitoring & logging"
+        "Terraform",
+        "Cloudflare"
       ]
     },
     {
-      "name": "Backend, APIs & Integrations",
+      "name": "Developer Tools",
       "skills": [
-        "Node.js",
-        "Express",
-        "Django",
-        "Flask",
-        "Streamlit",
-        "REST APIs",
-        "Square API",
-        "Apple PassKit",
-        "Google Wallet API",
-        "PKI signing",
-        "Encryption"
+        "Git",
+        "GitHub",
+        "Claude Code",
+        "Cursor",
+        "OpenAI Codex",
+        "Gemini"
       ]
     },
     {
-      "name": "AI, Automation & Data",
-      "skills": [
-        "LangChain",
-        "LLM workflows",
-        "AI-assisted testing",
-        "Natural-language QA",
-        "Prompt engineering",
-        "Vector search",
-        "Qdrant",
-        "Power BI",
-        "MySQL",
-        "OpenCV",
-        "PyTesseract"
-      ]
-    },
-    {
-      "name": "Testing & Release Quality",
-      "skills": [
-        "E2E testing",
-        "Cypress",
-        "Cucumber",
-        "Gherkin",
-        "Jest",
-        "Regression automation",
-        "Release validation",
-        "Dockerized test execution"
-      ]
-    },
-    {
-      "name": "Enterprise Platforms & Analytics",
+      "name": "Web Platform & Testing",
       "skills": [
         "Headless AEM",
-        "Adobe Dispatcher",
-        "Akamai",
-        "Java 21 modernization",
-        "Geo-redirection",
-        "Internationalization",
-        "GA/GTM",
-        "Marketo",
-        "Chrome UX Report"
+        "AEM as a Cloud Service",
+        "Apache Sling",
+        "AEM Dispatcher",
+        "Cypress",
+        "Cucumber",
+        "Zephyr",
+        "Jest"
       ]
     }
   ],

@@ -7,15 +7,16 @@
       "period": "Jan 2025 - Present",
       "logoSrc": "/images/dun-bradstreet-logo.svg",
       "logoAlt": "Dun & Bradstreet logo",
-      "description": "Full-time engineering role focused on dnb.com performance, AI-assisted quality automation, international migration work, and platform modernization across the Headless AEM stack.",
+      "description": "Engineering dnb.com across AEM Cloud, Cloudflare, frontend performance, AI search visibility, developer tooling, and automated quality workflows for a global enterprise platform.",
       "highlights": [
-        "Improved dnb.com Core Web Vitals from poor to near-perfect across a public-estimated 3.6M monthly visits, strengthening a channel where ~48% of traffic comes from organic search and supporting a modeled $1M+ six-month revenue opportunity.",
-        "Built a 0-to-1, Dockerized AI-enabled E2E testing framework for critical user and business workflows, integrating it into CI/CD and natural-language QA authoring to create a repeatable release-quality gate and reduce regression risk.",
-        "Led DUNS expansion verification with automated E2E coverage and AI-assisted validation/reporting, compressing large-scale readiness testing into roughly one month and replacing weeks of manual QA effort for a business-critical launch.",
-        "Shipped migration features across 15+ international markets, including Canada and UK DUNS Lookup, business-controlled 400/404/500 multilingual error pages, and Akamai/Adobe Dispatcher geo-redirection, accelerating localized launch readiness.",
-        "Supported production releases by resolving critical CTA, content fragment, form ID, cookie categorization, language URL, GA/GTM, and Marketo issues; upgraded the platform from Java 11 to Java 21 with zero production incidents or release rollbacks."
+        "Replatformed and redesigned 22,000+ dnb.com pages across 17 markets from AEM Managed Services to AEM Cloud by owning dispatcher config, Cloudflare routing, and migration testing for engineering, marketing, legal, and support.",
+        "Raised Lighthouse performance scores from approximately 45 to 90 and reduced page-load times by approximately 50% through code splitting, lazy loading, image optimization, SSR improvements, bundle reduction, and Core Web Vitals fixes.",
+        "Increased Marketo lead-form conversions by 1-2% across high-traffic marketing pages by improving frontend rendering, page speed, and Core Web Vitals across localized dnb.com experiences.",
+        "Cut common AEM debugging workflows from 30-60 minutes to under 5 minutes by building a TypeScript MCP server that connects Claude Code, Cursor, OpenAI Codex, and Gemini to live logs, metadata validation, page inspection, and environment comparison tools.",
+        "Increased AI crawler activity by 10x and improved AI search visibility across OpenAI, Anthropic, Perplexity, Google, and Bing/Copilot by automating llms.txt and llms-full.txt generation, robots.txt updates, metadata, and response headers.",
+        "Accelerated DUNS alphanumeric certification from an expected 3-6 months to 1 month by building an AI-assisted testing framework that converted 200+ Zephyr cases into human-reviewed Cypress/Cucumber tests."
       ],
-      "tags": ["React", "Headless AEM", "Core Web Vitals", "AI Automation", "Akamai", "Java 21"]
+      "tags": ["AEM Cloud", "Cloudflare", "Core Web Vitals", "TypeScript", "MCP", "Cypress"]
     },
     {
       "title": "Software Engineering Intern",
@@ -24,36 +25,34 @@
       "period": "May 2024 - Dec 2024",
       "logoSrc": "/images/dun-bradstreet-logo.svg",
       "logoAlt": "Dun & Bradstreet logo",
-      "description": "Built cloud-native data and AI automation for social intelligence reporting, combining LangChain, Docker, Google Cloud, Terraform, and Power BI to turn raw signals into business-ready visibility.",
+      "description": "Built cloud-native data and AI automation for executive social media and employee sentiment reporting with Google Cloud, Terraform, and Power BI.",
       "highlights": [
-        "Automated processing for 20,000+ annual social data points with a scheduled Cloud Run pipeline, replacing recurring manual data preparation and saving an estimated 100+ analyst hours per year.",
-        "Fed real-time Power BI dashboards from a Google Cloud MySQL database provisioned with Terraform, reducing reporting lag from periodic exports to always-current stakeholder visibility.",
-        "Containerized a serverless LangChain workflow with Docker and Google Cloud Scheduler, creating a repeatable pattern for AI-assisted data processing that lowered operational support effort."
+        "Built a nightly Cloud Run pipeline processing social media and Glassdoor employee data for sentiment analysis, summarization, risk signals, and executive decision support.",
+        "Loaded 20,000+ annual data points into Cloud SQL/MySQL to power executive Power BI dashboards, with automated refreshes through Cloud Scheduler, Terraform, and CI/CD.",
+        "Reduced manual reporting work by an estimated 5-10 hours per week by automating nightly ingestion, transformation, and dashboard refreshes for executive social media and employee sentiment reporting."
       ],
-      "tags": ["LangChain", "Docker", "Google Cloud", "Power BI", "Terraform"]
+      "tags": ["Cloud Run", "Cloud SQL", "Cloud Scheduler", "Power BI", "Terraform"]
     },
     {
       "title": "Web Developer",
       "org": "BamM Tickets",
       "location": "Remote",
-      "period": "Nov 2023 - May 2024",
+      "period": "Jun 2023 - May 2024",
       "logoSrc": "/images/bamm-tickets-logo.png",
       "logoAlt": "BAMM Tickets logo",
-      "description": "Built customer-facing ticketing features and internal operations tooling across cloud infrastructure, digital wallets, AI-assisted workflows, and inventory systems for a live ticketing platform.",
+      "description": "Developed a GCP-hosted ticketing platform with secure mobile-wallet delivery and Square-backed inventory management.",
       "highlights": [
-        "Engineered a secure digital wallet integration using Apple PassKit and Google Wallet API, managing PKI signing and encryption to deliver tickets to thousands of active users.",
-        "Built Google Cloud-backed services for ticketing and operations workflows, improving reliability for event-day delivery and giving the platform a stronger foundation for future feature growth.",
-        "Developed multiple AI-assisted features that streamlined event and inventory workflows, reducing manual operations effort and creating reusable automation patterns for the team.",
-        "Designed a complex inventory management system synchronized with the Square API, reducing oversell risk and replacing manual reconciliation across ticket and product sales channels."
+        "Developed a GCP-hosted ticketing site with Apple PassKit and Google Wallet APIs, delivering secure mobile ticketing for thousands of users.",
+        "Built a product inventory system synced directly with the Square Catalog API, using Square as the source of truth without separate inventory storage."
       ],
-      "tags": ["Google Cloud", "AI Features", "Square API", "Apple PassKit", "Google Wallet API"]
+      "tags": ["Google Cloud", "Square Catalog API", "Apple PassKit", "Google Wallet API"]
     }
   ],
   "education": [
     {
       "degree": "Master's in Artificial Intelligence",
       "school": "Georgia Institute of Technology",
-      "period": "2026 - Present",
+      "period": "Jan 2026 - Present",
       "logoSrc": "/images/georgia-tech-logo.png",
       "logoAlt": "Georgia Tech logo",
       "highlights": ["Graduate study in artificial intelligence"]

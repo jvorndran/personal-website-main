@@ -1,12 +1,15 @@
 ---
-title: "Deep Research Agent"
-description: "Asynchronous financial research platform that turns complex macro and equity questions into source-backed reports with interactive charts."
-tags: ["Python", "FastAPI", "Next.js", "LangGraph", "Recharts"]
+title: "Deep Brief - AI Macro Research Agent"
+description: "Live deep-research macro app using LangChain Deep Agents for evidence-backed market analysis."
+tags: ["Next.js", "TypeScript", "FastAPI", "Python", "LangChain", "PostgreSQL", "Docker", "Terraform", "GCP"]
 status: "active"
 github: "https://github.com/jvorndran/DeepResearchAgent"
+url: "https://app.mydeepbrief.com"
 order: 1
 ---
 
-Built a full-stack research system with a Next.js 16 and React 19 frontend, FastAPI backend, Better Auth, PostgreSQL, and streaming SSE flows for intake, approval, live pipeline progress, and report delivery.
+Built and launched Deep Brief, a live deep-research macro app using LangChain Deep Agents for evidence-backed market analysis.
 
-The backend coordinates role-based agents for intake, data acquisition, quantitative analysis, technical writing, and QA. Reports are generated from deterministic Python analysis outputs, with chart contracts validated for Recharts rendering and source-backed financial research workflows.
+Developed the full-stack research system with Next.js, FastAPI, PostgreSQL, and Docker for authentication, saved reports, artifacts, source context, and follow-up analysis.
+
+Deployed to Google Cloud with Terraform-managed Compute Engine, Cloud Run Jobs, Artifact Registry, Secret Manager, Cloud Storage, HTTPS/DNS, and IAM.
