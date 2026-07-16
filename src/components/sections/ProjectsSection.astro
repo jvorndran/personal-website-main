@@ -28,49 +28,69 @@ function projectDetail(body: string): string {
         </div>
 
         {projects.map((project) => (
-          <div class="group rounded-lg border border-border/30 bg-surface/10 px-4 py-3.5 transition-all hover:border-accent-projects/40 hover:bg-surface/30 hover:shadow-[0_0_16px_var(--color-glow-projects)]">
-            <div class="flex flex-wrap items-start justify-between gap-3">
-              <div class="min-w-0 flex-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-accent-projects opacity-70 transition-opacity group-hover:opacity-100">▸</span>
-                  <h3 class="font-semibold text-text transition-colors group-hover:text-accent-projects">{project.data.title}</h3>
+          <div
+            class={`group rounded-lg border px-4 py-3.5 transition-all hover:bg-surface/30 hover:shadow-[0_0_16px_var(--color-glow-projects)] ${
+              project.data.url
+                ? 'border-accent-projects/55 bg-accent-projects/[0.06] shadow-[inset_0_0_20px_var(--color-glow-projects)]'
+                : 'border-border/30 bg-surface/10 hover:border-accent-projects/40'
+            }`}
+          >
+            <div class="min-w-0">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-accent-projects opacity-70 transition-opacity group-hover:opacity-100">▸</span>
+                <h3 class="font-semibold text-text transition-colors group-hover:text-accent-projects">{project.data.title}</h3>
+                {project.data.url ? (
+                  <span class="inline-flex items-center gap-1.5 rounded-full border border-accent-projects/60 bg-accent-projects/15 px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wider text-accent-projects">
+                    <span class="h-1.5 w-1.5 rounded-full bg-accent-projects shadow-[0_0_8px_var(--color-glow-projects)] motion-safe:animate-pulse" />
+                    Live product
+                  </span>
+                ) : (
                   <span class="rounded border border-border/60 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-wider text-muted/60">
                     {project.data.status}
                   </span>
-                </div>
-                <p class="mt-1.5 text-sm leading-relaxed text-muted">{project.data.description}</p>
-                {projectDetail(project.body) && (
-                  <p class="mt-2 text-xs leading-relaxed text-muted/70">{projectDetail(project.body)}</p>
                 )}
               </div>
+              <p class="mt-1.5 text-sm leading-relaxed text-muted">{project.data.description}</p>
+              {projectDetail(project.body) && (
+                <p class="mt-2 text-xs leading-relaxed text-muted/70">{projectDetail(project.body)}</p>
+              )}
+            </div>
 
-              <div class="flex gap-2">
-                {project.data.github && (
-                  <a
-                    href={project.data.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="rounded border border-border/60 px-2.5 py-1 text-xs text-muted transition-all hover:border-accent-projects/60 hover:text-accent-projects"
-                    aria-label={`View ${project.data.title} on GitHub`}
-                  >
-                    Code
-                  </a>
-                )}
+            {(project.data.url || project.data.github) && (
+              <div class="mt-4 flex flex-wrap items-center gap-2">
                 {project.data.url && (
                   <a
                     href={project.data.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="rounded border border-accent-projects/60 bg-accent-projects/10 px-2.5 py-1 text-xs text-accent-projects transition-all hover:bg-accent-projects hover:text-bg"
-                    aria-label={`Visit ${project.data.title}`}
+                    class="inline-flex w-full items-center justify-center gap-2 rounded-md border border-accent-projects bg-accent-projects px-4 py-2 text-sm font-semibold text-bg shadow-[0_0_18px_var(--color-glow-projects)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_28px_var(--color-glow-projects)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-projects sm:w-auto"
+                    aria-label={`${project.data.liveLabel ?? 'Open live project'}: ${project.data.title}`}
                   >
-                    Live
+                    {project.data.liveLabel ?? 'Open live project'}
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M7 17 17 7" />
+                      <path d="M7 7h10v10" />
+                    </svg>
                   </a>
                 )}
+                {project.data.github && (
+                  <a
+                    href={project.data.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center rounded-md border border-border/60 px-3 py-2 text-xs text-muted transition-all hover:border-accent-projects/60 hover:text-accent-projects"
+                    aria-label={`View ${project.data.title} source code on GitHub`}
+                  >
+                    View source
+                  </a>
+                )}
+                {project.data.url && (
+                  <span class="text-[0.65rem] text-muted/70">app.mydeepbrief.com</span>
+                )}
               </div>
-            </div>
+            )}
 
-            <div class="mt-2.5 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               {project.data.tags.map((tag: string) => (
                 <span class="rounded bg-accent-projects/10 px-2 py-0.5 text-[0.6rem] text-accent-projects/80">
                   {tag}

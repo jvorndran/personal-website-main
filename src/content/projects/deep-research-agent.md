@@ -3,8 +3,8 @@ title: "Deep Brief - AI Macro Research Agent"
 description: "Live deep-research macro app using LangChain Deep Agents for evidence-backed market analysis."
 tags: ["Next.js", "TypeScript", "FastAPI", "Python", "LangChain", "PostgreSQL", "Docker", "Terraform", "GCP"]
 status: "active"
-github: "https://github.com/jvorndran/DeepResearchAgent"
 url: "https://app.mydeepbrief.com"
+liveLabel: "Launch Deep Brief"
 order: 1
 ---
 

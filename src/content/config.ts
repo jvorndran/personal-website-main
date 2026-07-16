@@ -9,6 +9,7 @@ const projects = defineCollection({
     status: z.enum(['active', 'archived', 'wip']).default('active'),
     github: z.string().url().optional(),
     url: z.string().url().optional(),
+    liveLabel: z.string().optional(),
     order: z.number().default(0),
   }),
 });
