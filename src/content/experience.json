@@ -4,19 +4,31 @@
       "title": "Software Engineer",
       "org": "Dun & Bradstreet",
       "location": "Jacksonville, FL",
-      "period": "Jan 2025 - Present",
+      "period": "Jun 2026 - Present",
       "logoSrc": "/images/dun-bradstreet-logo.svg",
       "logoAlt": "Dun & Bradstreet logo",
-      "description": "Engineering dnb.com across AEM Cloud, Cloudflare, frontend performance, AI search visibility, developer tooling, and automated quality workflows for a global enterprise platform.",
+      "description": "Improving dnb.com organic discoverability and AI-search visibility through server-side rendering and machine-readable web experiences.",
       "highlights": [
-        "Replatformed and redesigned 22,000+ dnb.com pages across 17 markets from AEM Managed Services to AEM Cloud by owning dispatcher config, Cloudflare routing, and migration testing for engineering, marketing, legal, and support.",
-        "Raised Lighthouse performance scores from approximately 45 to 90 and reduced page-load times by approximately 50% through code splitting, lazy loading, image optimization, SSR improvements, bundle reduction, and Core Web Vitals fixes.",
-        "Increased Marketo lead-form conversions by 1-2% across high-traffic marketing pages by improving frontend rendering, page speed, and Core Web Vitals across localized dnb.com experiences.",
-        "Cut common AEM debugging workflows from 30-60 minutes to under 5 minutes by building a TypeScript MCP server that connects Claude Code, Cursor, OpenAI Codex, and Gemini to live logs, metadata validation, page inspection, and environment comparison tools.",
-        "Increased AI crawler activity by 10x and improved AI search visibility across OpenAI, Anthropic, Perplexity, Google, and Bing/Copilot by automating llms.txt and llms-full.txt generation, robots.txt updates, metadata, and response headers.",
-        "Accelerated DUNS alphanumeric certification from an expected 3-6 months to 1 month by building an AI-assisted testing framework that converted 200+ Zephyr cases into human-reviewed Cypress/Cucumber tests."
+        "Increased organic traffic by 10-15% and AI-search citations by 30% by migrating high-traffic dnb.com pages from client-side SPA rendering to server-side rendering, improving crawlability, indexation, and machine readability."
       ],
-      "tags": ["AEM Cloud", "Cloudflare", "Core Web Vitals", "TypeScript", "MCP", "Cypress"]
+      "tags": ["TypeScript", "React", "SSR", "SEO", "AI Search"]
+    },
+    {
+      "title": "Associate Software Engineer",
+      "org": "Dun & Bradstreet",
+      "location": "Jacksonville, FL",
+      "period": "Jan 2025 - May 2026",
+      "logoSrc": "/images/dun-bradstreet-logo.svg",
+      "logoAlt": "Dun & Bradstreet logo",
+      "description": "Led CDN, AEM Cloud, developer tooling, automated testing, and frontend performance work across dnb.com.",
+      "highlights": [
+        "Owned routing, caching, DNS, and edge-security controls for dnb.com's production CDN migration from Akamai to Cloudflare, translating complex delivery and security requirements into validated configurations that enabled a successful cutover.",
+        "Owned AEM Dispatcher configuration and migration validation for the AEM Cloud replatform spanning 22,000+ pages and 17 markets, enabling AEM authors to publish vanity URLs without individual engineering-maintained redirects.",
+        "Cut common AEM debugging workflows from 30-60 minutes to under 5 minutes by building a TypeScript MCP server that connected AI coding assistants to live logs, metadata validation, page inspection, and environment comparison tools.",
+        "Accelerated DUNS alphanumeric certification from an expected 3-6 months to 1 month by building an AI-assisted testing framework that converted 200+ Zephyr cases into human-reviewed Cypress/Cucumber tests.",
+        "Raised Lighthouse performance scores from approximately 45 to 90 and reduced page-load times by approximately 50% through code splitting, lazy loading, image optimization, bundle reduction, and Core Web Vitals fixes, contributing to a 1-2% increase in Marketo lead-form conversions."
+      ],
+      "tags": ["AEM Cloud", "Cloudflare", "Akamai", "TypeScript", "MCP", "Cypress"]
     },
     {
       "title": "Software Engineering Intern",
@@ -25,16 +37,15 @@
       "period": "May 2024 - Dec 2024",
       "logoSrc": "/images/dun-bradstreet-logo.svg",
       "logoAlt": "Dun & Bradstreet logo",
-      "description": "Built cloud-native data and AI automation for executive social media and employee sentiment reporting with Google Cloud, Terraform, and Power BI.",
+      "description": "Built cloud-native data and AI automation for executive social media and employee sentiment reporting with Google Cloud, LangChain, Terraform, and Power BI.",
       "highlights": [
-        "Built a nightly Cloud Run pipeline processing social media and Glassdoor employee data for sentiment analysis, summarization, risk signals, and executive decision support.",
-        "Loaded 20,000+ annual data points into Cloud SQL/MySQL to power executive Power BI dashboards, with automated refreshes through Cloud Scheduler, Terraform, and CI/CD.",
-        "Reduced manual reporting work by an estimated 5-10 hours per week by automating nightly ingestion, transformation, and dashboard refreshes for executive social media and employee sentiment reporting."
+        "Built a nightly Cloud Run pipeline that processed 20,000+ annual social media and Glassdoor data points into Cloud SQL/MySQL for sentiment analysis, risk signals, and executive Power BI dashboards, with automated refreshes through Cloud Scheduler, Terraform, and CI/CD.",
+        "Reduced manual reporting work by an estimated 5-10 hours per week by building a LangChain-powered AI sentiment-analysis workflow that automated nightly analysis and Power BI refreshes for executive social media and employee reporting."
       ],
-      "tags": ["Cloud Run", "Cloud SQL", "Cloud Scheduler", "Power BI", "Terraform"]
+      "tags": ["Cloud Run", "Cloud SQL", "LangChain", "Power BI", "Terraform"]
     },
     {
-      "title": "Web Developer",
+      "title": "Web Developer Intern",
       "org": "BamM Tickets",
       "location": "Remote",
       "period": "Jun 2023 - May 2024",

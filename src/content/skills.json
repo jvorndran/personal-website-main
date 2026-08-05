@@ -20,70 +20,69 @@
   "honors": [],
   "categories": [
     {
-      "name": "Languages",
-      "skills": ["TypeScript", "JavaScript", "Java", "Python", "SQL", "HTML/CSS"]
+      "name": "Languages & APIs",
+      "skills": [
+        "TypeScript",
+        "JavaScript",
+        "Python",
+        "Java",
+        "SQL",
+        "PHP",
+        "HTML/CSS",
+        "REST APIs",
+        "API Integration",
+        "Git",
+        "GitHub",
+        "SSR",
+        "SPA"
+      ]
     },
     {
-      "name": "Frontend & Backend",
+      "name": "Application & AI",
       "skills": [
         "React",
+        "Next.js",
         "Node.js",
         "Express",
         "FastAPI",
-        "Django",
-        "Flask",
+        "PostgreSQL",
+        "MySQL",
         "Streamlit",
-        "Tailwind CSS"
-      ]
-    },
-    {
-      "name": "AI, Data & Search",
-      "skills": [
         "LangChain",
-        "AI agents",
+        "AI Agents",
         "RAG",
         "MCP",
-        "Qdrant",
-        "Docling",
-        "UMAP",
-        "Power BI"
+        "Qdrant"
       ]
     },
     {
-      "name": "Cloud & DevOps",
+      "name": "Cloud & Infrastructure",
       "skills": [
         "Google Cloud Platform",
         "Cloud Run",
         "Cloud SQL",
-        "Cloud Scheduler",
+        "Compute Engine",
+        "Cloud Storage",
+        "IAM",
+        "VPC",
         "Docker",
-        "GitHub Actions",
         "Terraform",
-        "Cloudflare"
+        "Cloudflare",
+        "Akamai"
       ]
     },
     {
-      "name": "Developer Tools",
+      "name": "Platforms & Testing",
       "skills": [
-        "Git",
-        "GitHub",
-        "Claude Code",
-        "Cursor",
-        "OpenAI Codex",
-        "Gemini"
-      ]
-    },
-    {
-      "name": "Web Platform & Testing",
-      "skills": [
-        "Headless AEM",
         "AEM as a Cloud Service",
         "Apache Sling",
         "AEM Dispatcher",
         "Cypress",
         "Cucumber",
+        "Jest",
         "Zephyr",
-        "Jest"
+        "GitHub Actions",
+        "CI/CD"
       ]
     }
   ],

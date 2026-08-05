@@ -23,21 +23,21 @@ const resolvedIconSrc = iconSrc
 ---
 
 <Tag
-  class="group block rounded-lg border border-border/60 bg-surface/20 px-4 py-3 transition-all hover:border-[var(--section-accent)]/60 hover:bg-surface/40 hover:shadow-[0_0_20px_var(--section-glow)]"
+  class="group block min-w-0 rounded-lg border border-border/60 bg-surface/20 px-4 py-3 transition-all hover:border-[var(--section-accent)]/60 hover:bg-surface/40 hover:shadow-[0_0_20px_var(--section-glow)]"
   {...href ? { href, target: '_blank', rel: 'noopener noreferrer' } : {}}
 >
-  <div class="flex items-center gap-3">
+  <div class="flex min-w-0 items-center gap-3">
     {resolvedIconSrc && (
-      <span class="flex h-8 w-8 items-center justify-center rounded-md border border-[var(--section-accent)]/20 bg-[var(--logo-frame-bg)] p-1.5 transition-colors group-hover:border-[var(--section-accent)]/40">
+      <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[var(--section-accent)]/20 bg-[var(--logo-frame-bg)] p-1.5 transition-colors group-hover:border-[var(--section-accent)]/40">
         <img src={resolvedIconSrc} alt={iconAlt} class="h-full w-full object-contain" loading="lazy" decoding="async" />
       </span>
     )}
     {!resolvedIconSrc && icon && (
-      <span class="flex h-8 w-8 items-center justify-center rounded-md border border-[var(--section-accent)]/20 bg-[var(--section-accent)]/10 text-[var(--section-accent)] text-lg transition-colors group-hover:border-[var(--section-accent)]/40">
+      <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[var(--section-accent)]/20 bg-[var(--section-accent)]/10 text-[var(--section-accent)] text-lg transition-colors group-hover:border-[var(--section-accent)]/40">
         {icon}
       </span>
     )}
-    <div class="min-w-0">
+    <div class="min-w-0 flex-1">
       <div class="truncate text-sm font-semibold text-text">{name}</div>
       {issuer && <div class="truncate text-xs text-muted">{issuer}</div>}
     </div>
